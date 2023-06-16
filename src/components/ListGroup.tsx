@@ -11,6 +11,7 @@ interface Props {
 
 function ListGroup({ initialItems, heading }: Props) {
   const [items, setItems] = useState(initialItems);
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
 
   const addNewItem = () => {
     let curLen = items.length;
@@ -19,6 +20,15 @@ function ListGroup({ initialItems, heading }: Props) {
       name: `Item ${curLen + 1}`,
     };
     setItems([...items, newItem]);
+  };
+
+  const clickedItem = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
+    let target = e.target as HTMLLIElement;
+    console.log(target.getAttribute('data-id'));
+
+    let id = parseInt(target.getAttribute('data-id')!);
+    let item = items.find((item) => item.id === id);
+    setSelectedItem(item || null);
   };
 
   return (
@@ -45,10 +55,10 @@ function ListGroup({ initialItems, heading }: Props) {
         <ul className="list-disc">
           {items.map((item) => (
             <li
+              className={item.id === selectedItem?.id ? 'bg-gray-300' : ''}
               key={item.id}
-              onClick={() => {
-                alert(item.name);
-              }}
+              data-id={item.id}
+              onClick={clickedItem}
             >
               {item.name}
             </li>
