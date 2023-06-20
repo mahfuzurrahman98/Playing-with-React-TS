@@ -1,7 +1,11 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const LifeCycle = () => {
-  const [count, setCount] = useState(0);
+type CounterProps = {
+  initialCount: number;
+};
+
+const LifeCycle: React.FC<CounterProps> = ({ initialCount }) => {
+  const [count, setCount] = useState<number>(initialCount);
 
   useEffect(() => {
     console.log(`Effect 1 - Component mounted - Count: ${count}`);

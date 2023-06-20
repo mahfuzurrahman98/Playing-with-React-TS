@@ -4,7 +4,7 @@ import LifeCycle from './components/LifeCycle';
 
 // import DataBinding from './components/DataBinding';
 
-function App() {
+const App: React.FC = () => {
   // type Item = {
   //   id: number;
   //   name: string;
@@ -20,9 +20,9 @@ function App() {
 
       {/* <DataBinding /> */}
 
-      <LifeCycle />
+      <LifeCycle initialCount={10} />
     </div>
   );
-}
+};
 
 export default App;
