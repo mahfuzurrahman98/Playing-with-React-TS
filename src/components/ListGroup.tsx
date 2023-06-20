@@ -6,10 +6,9 @@ type Item = {
 
 interface Props {
   initialItems: Item[];
-  heading: string;
 }
 
-function ListGroup({ initialItems, heading }: Props) {
+function ListGroup({ initialItems }: Props) {
   const [items, setItems] = useState(initialItems);
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
 
@@ -19,12 +18,11 @@ function ListGroup({ initialItems, heading }: Props) {
       id: curLen + 1,
       name: `Item ${curLen + 1}`,
     };
-    setItems([...items, newItem]);
+    setItems((prevItems) => [...prevItems, newItem]);
   };
 
   const clickedItem = (e: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
     let target = e.target as HTMLLIElement;
-    console.log(target.getAttribute('data-id'));
 
     let id = parseInt(target.getAttribute('data-id')!);
     let item = items.find((item) => item.id === id);
@@ -32,8 +30,7 @@ function ListGroup({ initialItems, heading }: Props) {
   };
 
   return (
-    <div className="px-5">
-      <h3>{heading}</h3>
+    <div className="px-5 pt-5">
       {items.length === 0 && <p>No items found.</p>}
       <div className="flex gap-x-5">
         <button
