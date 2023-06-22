@@ -1,6 +1,10 @@
 // import ListGroup from './components/ListGroup';
 
-import LifeCycle from './components/LifeCycle';
+import UseReducer2 from './components/UseReducer2';
+
+// import UseReducer1 from './components/UseReducer1';
+
+// import LifeCycle from './components/LifeCycle';
 
 // import DataBinding from './components/DataBinding';
 
@@ -20,7 +24,11 @@ const App: React.FC = () => {
 
       {/* <DataBinding /> */}
 
-      <LifeCycle initialCount={10} />
+      {/* <LifeCycle initialCount={10} /> */}
+
+      {/* <UseReducer1 /> */}
+
+      <UseReducer2 />
     </div>
   );
 };
