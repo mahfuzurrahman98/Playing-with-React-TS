@@ -1,6 +1,8 @@
 // import ListGroup from './components/ListGroup';
 
-import UseReducer2 from './components/UseReducer2';
+import Main from './components/use_context/Main';
+
+// import UseReducer2 from './components/UseReducer2';
 
 // import UseReducer1 from './components/UseReducer1';
 
@@ -11,7 +13,7 @@ import UseReducer2 from './components/UseReducer2';
 const App: React.FC = () => {
   // type Item = {
   //   id: number;
-  //   name: string;
+  //   name: string;s
   // };
   // const initialItems: Item[] = [
   //   { id: 1, name: 'Item 1' },
@@ -28,7 +30,9 @@ const App: React.FC = () => {
 
       {/* <UseReducer1 /> */}
 
-      <UseReducer2 />
+      {/* <UseReducer2 /> */}
+
+      <Main />
     </div>
   );
 };
