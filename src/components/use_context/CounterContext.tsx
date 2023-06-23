@@ -3,26 +3,47 @@ import {
   PropsWithChildren,
   createContext,
   useContext,
-  useState,
+  useReducer,
 } from 'react';
 
 type CounterContextType = {
-  counter: number;
+  state: number;
   increment: () => void;
   decrement: () => void;
+  reset: () => void;
 };
+
+type Action = {
+  type: 'increment' | 'decrement' | 'reset';
+};
+
+const reducer = (state: number, action: Action): number => {
+  if (action.type === 'increment') {
+    return state + 1;
+  } else if (action.type === 'decrement') {
+    return state - 1;
+  } else if (action.type === 'reset') {
+    return initialCount;
+  } else {
+    return state;
+  }
+};
+
+const initialCount: number = 0;
 
 const CounterContext = createContext<CounterContextType | undefined>(undefined);
 
 export const CounterProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
-  const [counter, setCounter] = useState(0);
-  const increment = () => setCounter((prevCounter) => prevCounter + 1);
-  const decrement = () => setCounter((prevCounter) => prevCounter - 1);
+  const [state, dispatch] = useReducer(reducer, initialCount);
+  const increment = () => dispatch({ type: 'increment' });
+  const decrement = () => dispatch({ type: 'decrement' });
+  const reset = () => dispatch({ type: 'reset' });
 
   const contextValue: CounterContextType = {
-    counter,
+    state,
     increment,
     decrement,
+    reset,
   };
 
   return (

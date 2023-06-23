@@ -6,7 +6,8 @@ const DecrementButton: FC = () => {
 
   return (
     <button
-      className="bg-blue-500 hover:bg-blue-600 text-white font-bold text-3xl py-0 px-3 rounded"
+      className="bg-red-500 hover:bg-red-600 text-white font-bold text-3xl py-0 px-3 rounded"
+      title="decrement"
       onClick={decrement}
     >
       -

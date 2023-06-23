@@ -7,6 +7,7 @@ const IncrementButton: FC = () => {
   return (
     <button
       className="bg-blue-500 hover:bg-blue-600 text-white font-bold text-3xl py-0 px-2 rounded"
+      title="increment"
       onClick={increment}
     >
       +
