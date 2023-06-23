@@ -1,6 +1,6 @@
 // import ListGroup from './components/ListGroup';
 
-import Main from './components/use_context/Main';
+import ReactMemo from './components/ReactMemo';
 
 // import UseReducer2 from './components/UseReducer2';
 
@@ -32,7 +32,9 @@ const App: React.FC = () => {
 
       {/* <UseReducer2 /> */}
 
-      <Main />
+      {/* <Main /> */}
+
+      <ReactMemo />
     </div>
   );
 };
