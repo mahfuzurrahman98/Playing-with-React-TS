@@ -20,27 +20,33 @@ const ReactMemo: FC = () => {
           +
         </button>
       </div>
-      <MemoedMessage />
+      {/* <Message countValue={count} /> */}
+      <MemoedMessage countValue={count} />
     </div>
   );
 };
 
-const Message: FC = () => {
+type MessageProps = {
+  countValue: number;
+};
+
+const Message: FC<MessageProps> = ({ countValue }) => {
   const [bgColor, setBgColor] = useState('yellow');
   const handleColorChange = (event: MouseEvent<HTMLDivElement>): void => {
     setBgColor((prevColor) => (prevColor === 'yellow' ? 'red' : 'yellow'));
     console.log(`Color changed to ${bgColor}`);
   };
 
-  console.log('Message component rendered.');
+  console.log('Message component rendered with count =', countValue);
   return (
     <div
       className="p-5 border-2 border-black w-12 h-12"
-      style={{ backgroundColor: bgColor }}
+      style={{ backgroundColor: countValue % 2 === 1 ? 'yellow' : 'red' }}
       onClick={handleColorChange}
     ></div>
   );
 };
 
 const MemoedMessage = memo(Message);
+
 export default ReactMemo;
