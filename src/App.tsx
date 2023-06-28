@@ -1,8 +1,8 @@
 // import ListGroup from './components/ListGroup';
 
-// import UseCallback from './components/UseCallBack';
+import UseCallBack from './components/UseCallBack';
 
-import ReactMemo from './components/ReactMemo';
+// import ReactMemo from './components/ReactMemo';
 
 // import UseReducer2 from './components/UseReducer2';
 
@@ -36,9 +36,9 @@ const App: React.FC = () => {
 
       {/* <Main /> */}
 
-      <ReactMemo />
+      {/* <ReactMemo /> */}
 
-      {/* <UseCallback /> */}
+      <UseCallBack />
     </div>
   );
 };
