@@ -1,16 +1,12 @@
 // import ListGroup from './components/ListGroup';
-
-import UseCallBack from './components/UseCallBack';
-
-// import ReactMemo from './components/ReactMemo';
-
+// import UseCallBack from './components/UseCallBack';
+import ReactMemo from './components/ReactMemo';
 // import UseReducer2 from './components/UseReducer2';
-
 // import UseReducer1 from './components/UseReducer1';
-
 // import LifeCycle from './components/LifeCycle';
-
 // import DataBinding from './components/DataBinding';
+
+// import UseMemo from './components/UseMemo';
 
 const App: React.FC = () => {
   // type Item = {
@@ -36,9 +32,10 @@ const App: React.FC = () => {
 
       {/* <Main /> */}
 
-      {/* <ReactMemo /> */}
+      <ReactMemo />
 
-      <UseCallBack />
+      {/* <UseCallBack /> */}
+      {/* <UseMemo /> */}
     </div>
   );
 };

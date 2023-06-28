@@ -1,5 +1,14 @@
 import { FC, MouseEvent, memo, useState } from 'react';
 
+/**
+ * ReactMemo is a functional component that renders a counter and a button.
+ *
+ * @return {void}
+ */
+
+/*
+Explanation: This code defines a React functional component called ReactMemo that renders a counter and a button. It uses the useState hook to manage the state of the counter. When the button is clicked, the handleCount function is called, which updates the counter state and logs the new count value. The component also logs a message when it is rendered. The JSX code inside the return statement defines the structure and appearance of the rendered component.
+*/
 const ReactMemo: FC = () => {
   const [count, setCount] = useState(0);
 
@@ -8,7 +17,7 @@ const ReactMemo: FC = () => {
     console.log('Count changed to: ', count + 1);
   };
 
-  console.log('ReactMemo component rendered.');
+  console.log('Main component rendered.');
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <div className="text-center mb-5 bg-gray-300 px-3 py-5 rounded-md">
@@ -21,7 +30,7 @@ const ReactMemo: FC = () => {
         </button>
       </div>
       {/* <Message countValue={count} /> */}
-      <MemoedMessage countValue={count} />
+      <MemoedMessage countValue={0} />
     </div>
   );
 };
@@ -29,6 +38,17 @@ const ReactMemo: FC = () => {
 type MessageProps = {
   countValue: number;
 };
+
+/**
+ * Renders a Message component with a count value.
+ *
+ * @param {MessageProps} countValue - The count value for the Message component.
+ * @return {ReactElement} The rendered Message component.
+ */
+
+/*
+Explanation: This code defines a Message component in TypeScript, which renders a div element with a count value. When the div is clicked, the background color changes between yellow and red. The count value determines the initial background color. The component also logs the count value when it is rendered.
+*/
 
 const Message: FC<MessageProps> = ({ countValue }) => {
   const [bgColor, setBgColor] = useState('yellow');
@@ -50,3 +70,13 @@ const Message: FC<MessageProps> = ({ countValue }) => {
 const MemoedMessage = memo(Message);
 
 export default ReactMemo;
+
+/*
+Final thoughts:
+---------------
+In the provided code, the Message component is memoized using the React.memo function. This means that when the MemoedMessage component is called with a static countValue from the parent component, it becomes a part of the ReactMemo component. It will not be re-rendered every time the ReactMemo component is rendered as long as the countValue remains the same.
+
+However, when the countValue is passed as a dynamic value, the MemoedMessage component will be re-rendered every time the parent component is rendered, even if there are no changes in other parts of the component. This ensures that the MemoedMessage component reflects the updated countValue accurately.
+
+By memoizing the Message component, unnecessary re-renders can be avoided when the countValue doesn't change, optimizing the performance of the application.
+*/
