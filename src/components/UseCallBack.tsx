@@ -5,7 +5,7 @@ type MessageProps = {
   handleClick: () => void;
 };
 
-const ReactMemo: FC = () => {
+const UseCallBack: FC = () => {
   const [count, setCount] = useState(0);
   const [toggleValue, setToggleValue] = useState(false);
 
@@ -62,4 +62,4 @@ const Message: FC<MessageProps> = ({ countValue, handleClick }) => {
 
 const MemoedMessage = memo(Message);
 
-export default ReactMemo;
+export default UseCallBack;
